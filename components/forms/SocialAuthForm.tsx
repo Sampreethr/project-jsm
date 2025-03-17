@@ -18,14 +18,11 @@ const SocialAuthForm = () => {
             });
         }catch(error){
             console.error(`Sign-in error with ${provider}:`, error);
-            toast({
-                title: `${provider.charAt(0).toUpperCase() + provider.slice(1)} Sign-in Failed`,
-                description:
+            toast(
                 error instanceof Error
                 ? error.message
-                : `An error occurred during ${provider} sign-in`,
-                variant: "error"
-            })
+                : `${provider.charAt(0).toUpperCase() + provider.slice(1)} Sign-in Failed: An error occurred`
+            );
             
         }
     }

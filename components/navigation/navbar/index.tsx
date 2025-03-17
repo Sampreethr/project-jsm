@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Switch } from '@/components/ui/switch'
@@ -10,6 +10,11 @@ import { useTheme } from 'next-themes'
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <nav className="background-light900_dark200 fixed z-50 w-full p-6 shadow-light-300 dark:shadow-none sm:px-12">
@@ -38,11 +43,13 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <Switch
-            checked={theme === 'dark'}
-            onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
-            className="ml-auto"
-          />
+          {mounted && (
+            <Switch
+              checked={theme === 'dark'}
+              onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
+              className="ml-auto"
+            />
+          )}
           <MobileNavigation/>
         </div>
       </div>

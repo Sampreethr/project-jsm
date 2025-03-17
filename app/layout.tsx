@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import { SessionProvider } from "next-auth/react";
 import { ReactNode } from "react";
 import { auth } from "@/auth";
+import { AuthProvider } from '@/context/AuthContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,16 +31,13 @@ export default async function RootLayout({children} : {children : ReactNode}) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-        attribute="class"
-        defaultTheme = "system"
-        enableSystem
-        disableTransitionOnChange
-        >
+        <ThemeProvider>
           <SessionProvider session={session}>
-            <Navbar/>
-            {children}
-            <Toaster/>
+            <AuthProvider>
+              <Navbar/>
+              {children}
+              <Toaster/>
+            </AuthProvider>
           </SessionProvider>
         </ThemeProvider>
       </body>
