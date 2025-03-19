@@ -8,6 +8,8 @@ import { SessionProvider } from "next-auth/react";
 import { ReactNode } from "react";
 import { auth } from "@/auth";
 import { AuthProvider } from '@/context/AuthContext';
+import LeftSideBar from "@/components/navigation/LeftSideBar";
+import RightSideBar from "@/components/navigation/RightSideBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,11 +37,21 @@ export default async function RootLayout({children} : {children : ReactNode}) {
           <SessionProvider session={session}>
             <AuthProvider>
               <Navbar/>
-              {children}
+              <div className="flex">
+                <LeftSideBar/>
+                    <div className="flex-1">
+                      {children}
+                    </div>
+                  <RightSideBar/>
+               </div>
+              
               <Toaster/>
+              
             </AuthProvider>
+            
           </SessionProvider>
         </ThemeProvider>
+        
       </body>
     </html>
   );

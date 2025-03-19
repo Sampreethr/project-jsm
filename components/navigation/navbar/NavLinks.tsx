@@ -23,7 +23,7 @@ const NavLinks = ({isMobileNav = false}:{isMobileNav?:boolean}) => {
   const { userId } = useAuth();
 
   return (
-    <div className={`flex ${isMobileNav ? 'flex-col gap-6' : 'flex-row gap-1'} items-start w-full`}>
+    <div className={`flex flex-col gap-4 items-start w-full`}>
       {sidebarLinks.map((item: SidebarLink) => {
         const isActive = (pathname.includes(item.route) && item.route.length > 1) ||
         pathname === item.route;
@@ -39,7 +39,7 @@ const NavLinks = ({isMobileNav = false}:{isMobileNav?:boolean}) => {
             href={currentRoute} 
             key={item.label} 
             className={cn(
-              "flex items-center justify-start gap-4 p-2 w-full rounded-lg transition-all hover:bg-light-800 dark:hover:bg-dark-400",
+              "flex items-center justify-start gap-4 p-4 w-full rounded-lg transition-all hover:bg-light-700 dark:hover:bg-dark-300",
               isActive ? "primary-gradient text-light-900" : "text-dark300_light900"
             )}
           >
@@ -50,11 +50,11 @@ const NavLinks = ({isMobileNav = false}:{isMobileNav?:boolean}) => {
               height={20} 
               className={cn(
                 "object-contain",
-                isActive ? "brightness-0 invert" : "invert-0 dark:invert"
+                isActive ? "brightness-0 invert" : "invert-colors dark:invert"
               )}
             />
             <p className={cn(
-              "text-dark200_light800 text-[16px]",
+              "text-dark300_light900 text-[16px]",
               isActive ? "font-bold" : "font-medium",
               isMobileNav ? "block" : "hidden lg:block"
             )}>
