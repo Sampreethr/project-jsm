@@ -10,6 +10,7 @@ import { auth } from "@/auth";
 import { AuthProvider } from '@/context/AuthContext';
 import LeftSideBar from "@/components/navigation/LeftSideBar";
 import RightSideBar from "@/components/navigation/RightSideBar";
+import 'devicon/devicon.min.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,14 @@ export default async function RootLayout({children} : {children : ReactNode}) {
   const session = await auth();
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        
+      <link 
+      rel="stylesheet" 
+      type='text/css' 
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
