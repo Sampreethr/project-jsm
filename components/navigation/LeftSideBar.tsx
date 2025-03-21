@@ -9,9 +9,7 @@ import Image from 'next/image'
 
 const LeftSideBar = () => {
   return (
-    <section className="background-light900_dark200 light-border sticky left-0 top-0
-     flex h-screen w-[266px] flex-col justify-between overflow-y-auto border-r p-6 pt-36
-      shadow-light-300 dark:shadow-none max-sm:hidden">
+    <section className="bg-black-900 light-border sticky left-0 top-0 flex h-screen w-[266px] flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden">
       <div className="flex flex-1 flex-col gap-6">
         <NavLinks isMobileNav={false} />
       </div>
