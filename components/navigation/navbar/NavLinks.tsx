@@ -39,8 +39,8 @@ const NavLinks = ({isMobileNav = false}:{isMobileNav?:boolean}) => {
             href={currentRoute} 
             key={item.label} 
             className={cn(
-              "flex items-center justify-start gap-4 p-4 w-full rounded-lg transition-all hover:bg-light-700 dark:hover:bg-dark-300",
-              isActive ? "primary-gradient text-light-900" : "text-dark300_light900"
+              "flex items-center justify-start gap-4 p-4 w-full rounded-lg transition-all hover:bg-gray-800/10 dark:hover:bg-gray-800/50",
+              isActive ? "bg-gray-800 text-light-900" : "text-dark300_light900"
             )}
           >
             <Image 
