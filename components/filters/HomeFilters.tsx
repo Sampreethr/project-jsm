@@ -53,10 +53,10 @@ const HomeFilter = () => {
         <Button
           key={filter.name}
           className={cn(
-            `body-medium rounded-lg px-6 py-3 capitalize shadow-none`,
+            `body-medium rounded-lg px-6 py-3 capitalize shadow-none border border-black/20 dark:border-white/20`,
             active === filter.value
-              ? "primary-gradient text-orange-400 hover:opacity-90 dark:text-grey-900"
-              : "bg-light-200 text-light-500 hover:bg-light-800 dark:bg-dark-400 dark:text-light-500 dark:hover:bg-dark-300"
+              ? "primary-gradient text-light-900 hover:opacity-90 dark:text-light-900"
+              : "bg-light-200 text-dark-400 hover:bg-light-800 dark:bg-dark-400 dark:text-light-900 dark:hover:bg-dark-300"
           )}
           onClick={() => handleTypeClick(filter.value)}
         >
