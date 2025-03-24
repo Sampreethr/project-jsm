@@ -29,7 +29,7 @@ const QuestionCard = ({ question: { _id, title, tags, author, createdAt, upvotes
         </div>
       </div>
 
-      <div className="mt-3.5 flex w-full flex-wrap gap-2">
+      <div className="mt-3.5 flex w-full flex-row items-center gap-4">
         {tags.map((tag: Tag) => (
           <TagCard key={tag._id} _id={tag._id} name={tag.name} compact />
         ))}
