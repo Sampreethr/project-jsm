@@ -12,9 +12,9 @@ interface Tag {
   interface Question {
     _id: string;
     title: string;
+    description?: string;
     tags: Tag[];
     author: Author;
-    cretedAt: Date;
     upvotes: number;
     answers: number;
     views: number;
