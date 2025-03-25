@@ -6,6 +6,8 @@ import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
 
+
+
 const questions = [
   {
     _id: "1",
