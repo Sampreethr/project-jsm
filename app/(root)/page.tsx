@@ -1,12 +1,10 @@
 import Link from "next/link";
 
 import QuestionCard from "@/components/cards/QuestionCard";
-import HomeFilter from "@/components/filters/HomeFilters";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
-
-
+import HomeFilter from "@/components/filters/HomeFilters";
 
 const questions = [
   {
@@ -69,7 +67,7 @@ const Home = async ({ searchParams }: SearchParams) => {
   return (
     <>
       <section className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
-        <h1 className="h1-bold text-dark100_light900 text-3xl font-extrabold">All Questions</h1>
+        <h1 className="h1-bold text-dark100_light900">All Questions</h1>
 
         <Button
           className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900"
