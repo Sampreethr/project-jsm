@@ -15,7 +15,8 @@ if (!isEdge && !isProduction) {
       },
     });
   } catch (error) {
-    console.warn("pino-pretty is not supported in this environment:", error.message);
+    console.warn("pino-pretty is not supported in this environment:",
+      error instanceof Error ? error.message : String(error));
   }
 }
 
