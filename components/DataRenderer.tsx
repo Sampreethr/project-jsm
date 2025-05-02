@@ -47,14 +47,14 @@ const StateSkeleton = ({
   <div className="mt-16 flex w-full flex-col items-center justify-center sm:mt-36">
     <>
       <Image
-        src={image.dark}
+        src={image.dark || null}
         alt={image.alt}
         width={270}
         height={200}
         className="hidden object-contain dark:block"
       />
       <Image
-        src={image.light}
+        src={image.light || null}
         alt={image.alt}
         width={270}
         height={200}

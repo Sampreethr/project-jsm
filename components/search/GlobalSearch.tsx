@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
 import { Input } from "@/components/ui/input";
-import { formUrlQuery, removeKeysFromQuery } from "@/lib/url";
+import { formUrlQuery, removeKeysFromUrlQuery } from "@/lib/url";
 
 import GlobalResult from "../GlobalResult";
 
@@ -18,14 +18,13 @@ const GlobalSearch = () => {
 
   const [search, setSearch] = useState(query || "");
   const [isOpen, setIsOpen] = useState(query || false);
-  const searchContainerRef = useRef(null);
+  const searchContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
         searchContainerRef.current &&
-        // @ts-expect-error Property 'contains' does not exist on type 'EventTarget | null'.
-        !searchContainerRef.current?.contains(event.target)
+        !searchContainerRef.current.contains(event.target as Node)
       ) {
         setIsOpen(false);
         setSearch("");
@@ -51,7 +50,7 @@ const GlobalSearch = () => {
         router.push(newUrl, { scroll: false });
       } else {
         if (query) {
-          const newUrl = removeKeysFromQuery({
+          const newUrl = removeKeysFromUrlQuery({
             params: searchParams.toString(),
             keysToRemove: ["global", "type"],
           });
