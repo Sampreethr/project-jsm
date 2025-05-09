@@ -30,12 +30,14 @@ export async function signUpWithCredentials(
     const existingUser = await User.findOne({ email }).session(session);
 
     if (existingUser) {
+      await session.abortTransaction();
       throw new Error("User already exists");
     }
 
     const existingUsername = await User.findOne({ username }).session(session);
 
     if (existingUsername) {
+      await session.abortTransaction();
       throw new Error("Username already exists");
     }
 
@@ -64,8 +66,10 @@ export async function signUpWithCredentials(
 
     return { success: true };
   } catch (error) {
-    await session.abortTransaction();
-
+    // Only abort if transaction is active
+    if (session.inTransaction()) {
+      await session.abortTransaction();
+    }
     return handleError(error) as ErrorResponse;
   } finally {
     await session.endSession();
